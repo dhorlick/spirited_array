@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[GifEncoder encode:FilePath:]:GifEncoder.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[StreamedGifDecoder pixelColorAtFrame:X:Y:]:StreamedGifDecoder.m">
+      </ContextState>
+      <ContextState
+         contextName = "EGifPutLine:egif_lib.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "Line[54]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[StreamedGifDecoder colorTableIndexAtFrame:X:Y:]:StreamedGifDecoder.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

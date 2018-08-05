@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="494" id="495"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <numberFormatter formatterBehavior="custom10_4" positiveFormat="#" negativeFormat="#" localizesFormat="NO" allowsFloats="NO" usesGroupingSeparator="NO" paddingCharacter="*" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="4" decimalSeparator="." groupingSeparator="" currencyDecimalSeparator="." plusSign="+" minusSign="-" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="7uK-s8-QBE"/>
+        <menu title="AMainMenu" systemMenu="main" id="29">
+            <items>
+                <menuItem title="Spirited Array" id="56">
+                    <menu key="submenu" title="Spirited Array" systemMenu="apple" id="57">
+                        <items>
+                            <menuItem title="About Spirited Array" id="58">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="236">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem isSeparatorItem="YES" id="143">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Services" id="131">
+                                <menu key="submenu" title="Services" systemMenu="services" id="130"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="144">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Hide Spirited Array" keyEquivalent="h" id="134">
+                                <connections>
+                                    <action selector="hide:" target="-1" id="367"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-1" id="368"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="150">
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-1" id="370"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="149">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Quit Spirited Array" keyEquivalent="q" id="136">
+                                <connections>
+                                    <action selector="terminate:" target="-3" id="449"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="File" id="83">
+                    <menu key="submenu" title="File" autoenablesItems="NO" id="81">
+                        <items>
+                            <menuItem title="Open Media…" keyEquivalent="o" id="72">
+                                <connections>
+                                    <action selector="doOpenFile:" target="494" id="537"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="79">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Close" keyEquivalent="w" id="73">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="193"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="592"/>
+                            <menuItem title="Export as H.264-Encoded, QuickTime movie…" enabled="NO" id="593">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="doExportAsH264EncodedQuickTimeMovie:" target="494" id="9Il-DD-UCo"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Export as H.264-Encoded, MPEG-4 Part 14 &quot;MP4&quot; video…" enabled="NO" id="594">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="doExportAsH264EncodedMp4Video:" target="494" id="vGr-BJ-Qdr"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Export as Animated GIF file…" enabled="NO" id="562">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="doExportAsGif:" target="494" id="564"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Tiling" id="295">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Tiling" autoenablesItems="NO" id="296">
+                        <items>
+                            <menuItem title="Graph Paper" state="on" enabled="NO" id="586">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="doGraphPaper:" target="494" id="589"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Light-Emitting Diodes" enabled="NO" id="297">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="doLightEmittingDiodes:" target="494" id="565"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Solid Colors" enabled="NO" id="567">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="doSolidColors:" target="494" id="568"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Fat Bits" enabled="NO" id="298">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="doFatBits:" target="494" id="566"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="19">
+                    <menu key="submenu" title="Window" systemMenu="window" id="24">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="23">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="37"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom" id="239">
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="240"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="92">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Bring All to Front" id="5">
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="490">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="491">
+                        <items>
+                            <menuItem title="Spirited Array Help" keyEquivalent="?" id="492">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="493"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-111" y="557"/>
+        </menu>
+        <window title="Spirited Array" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="335" y="390" width="761" height="534"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <value key="minSize" type="size" width="290" height="80"/>
+            <view key="contentView" id="372">
+                <rect key="frame" x="0.0" y="0.0" width="761" height="534"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView id="VdC-zc-rGx" customClass="SAMacView">
+                        <rect key="frame" x="-1" y="29" width="732" height="505"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </customView>
+                    <button hidden="YES" id="pam-5Y-fdA">
+                        <rect key="frame" x="733" y="8" width="19" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="square" title="🔒" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="QLO-PM-gyl">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="13" name="AppleColorEmoji"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="toggleResizeTileWidthAndHeightTogether:" target="494" id="WGf-e3-bzM"/>
+                        </connections>
+                    </button>
+                    <slider hidden="YES" verticalHuggingPriority="750" id="Iyv-1O-0yk">
+                        <rect key="frame" x="387" y="7" width="338" height="15"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <sliderCell key="cell" controlSize="small" continuous="YES" state="on" alignment="left" minValue="5" maxValue="50" doubleValue="20" tickMarkPosition="above" sliderType="linear" id="9VV-5C-7J3"/>
+                        <connections>
+                            <binding destination="494" name="value" keyPath="viewHelper.desiredTileWidth" id="hrZ-3b-bUY">
+                                <dictionary key="options">
+                                    <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </slider>
+                    <slider hidden="YES" horizontalHuggingPriority="750" id="uKB-5d-Qif">
+                        <rect key="frame" x="738" y="34" width="15" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <sliderCell key="cell" controlSize="small" continuous="YES" alignment="left" minValue="5" maxValue="50" doubleValue="20" tickMarkPosition="right" sliderType="linear" id="lQV-pm-nz8"/>
+                        <connections>
+                            <binding destination="494" name="value" keyPath="viewHelper.desiredTileHeight" id="fvH-Of-w4H">
+                                <dictionary key="options">
+                                    <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </slider>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fg4-LT-T06">
+                        <rect key="frame" x="17" y="6" width="370" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No animation opened." id="Bl7-ng-Fvi">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <accessibility description="status label"/>
+                        <connections>
+                            <binding destination="494" name="value" keyPath="viewHelper.statusText" id="d0q-oG-9V3"/>
+                        </connections>
+                    </textField>
+                </subviews>
+            </view>
+        </window>
+        <customObject id="494" customClass="SAAppDelegate">
+            <connections>
+                <outlet property="exportAsGif" destination="562" id="daQ-Ax-oa6"/>
+                <outlet property="exportAsH264EncodedMp4Video" destination="593" id="8qJ-0X-ETL"/>
+                <outlet property="exportAsH264EncodedQuickTimeMovie" destination="594" id="OQp-NI-Nvt"/>
+                <outlet property="exportSettingsView" destination="nJ8-TI-Hsp" id="QuS-Xj-bxJ"/>
+                <outlet property="fatBits" destination="298" id="570"/>
+                <outlet property="graphPaper" destination="586" id="587"/>
+                <outlet property="lightEmittingDiodes" destination="297" id="569"/>
+                <outlet property="lockIcon" destination="pam-5Y-fdA" id="yGg-9q-NAb"/>
+                <outlet property="solidColors" destination="567" id="571"/>
+                <outlet property="tileHeightSlider" destination="uKB-5d-Qif" id="GpU-HV-xfg"/>
+                <outlet property="tileWidthSlider" destination="Iyv-1O-0yk" id="vnp-8J-Mmv"/>
+                <outlet property="tiling" destination="296" id="585"/>
+                <outlet property="videoExportSettingsController" destination="ZXz-AX-ooX" id="fJb-R0-Nud"/>
+                <outlet property="view" destination="VdC-zc-rGx" id="lil-3n-7Sk"/>
+                <outlet property="window" destination="371" id="532"/>
+            </connections>
+        </customObject>
+        <customObject id="420" customClass="NSFontManager"/>
+        <customView id="nJ8-TI-Hsp" userLabel="exportSettingsView">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="183"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autorecalculatesCellSize="YES" id="FMj-ea-6IQ">
+                    <rect key="frame" x="20" y="45" width="337" height="118"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    <size key="cellSize" width="321" height="18"/>
+                    <size key="intercellSpacing" width="4" height="2"/>
+                    <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="4Cv-OX-Wdz">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <cells>
+                        <column>
+                            <buttonCell type="radio" title="more-or-less window size" imagePosition="left" alignment="left" state="on" inset="2" id="b7D-h3-jxo">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <buttonCell type="radio" title="Full High-Definition (1920 × 1080)" imagePosition="left" alignment="left" tag="1" inset="2" id="KQm-Ym-fGj">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <connections>
+                                    <action selector="doExportDimensionsFullHighDef:" target="ZXz-AX-ooX" id="Gwe-7X-2eJ"/>
+                                </connections>
+                            </buttonCell>
+                            <buttonCell type="radio" title="Non-Full High-Definition (1280 × 720)" imagePosition="left" alignment="left" tag="2" inset="2" id="Z1f-XU-uAV">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <connections>
+                                    <action selector="doExportDimensionsNonFullHighDef:" target="ZXz-AX-ooX" id="1VP-rV-kaU"/>
+                                </connections>
+                            </buttonCell>
+                            <buttonCell type="radio" title="Medium Standard Definition (640 × 480 pixels)" imagePosition="left" alignment="left" tag="3" inset="2" id="c83-9Z-Uel">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <connections>
+                                    <action selector="doExportDimensionsMediumStandardDef:" target="ZXz-AX-ooX" id="Kjs-PN-coh"/>
+                                </connections>
+                            </buttonCell>
+                            <buttonCell type="radio" title="Somewhat Large Widescreen (853 × 480)" imagePosition="left" alignment="left" tag="4" inset="2" id="LQU-5P-YAp">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <connections>
+                                    <action selector="doExportDimensionsSomewhatLargeWidescreen:" target="ZXz-AX-ooX" id="hIV-ZP-e5K"/>
+                                </connections>
+                            </buttonCell>
+                            <buttonCell type="radio" title="custom" imagePosition="left" alignment="left" tag="5" inset="2" id="rfw-RA-uWn">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </column>
+                    </cells>
+                    <connections>
+                        <action selector="doExportDimensionsMoreOrLessWindowSize:" target="ZXz-AX-ooX" id="Xqu-eW-rRW"/>
+                    </connections>
+                </matrix>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lOJ-kK-oph">
+                    <rect key="frame" x="60" y="20" width="40" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Width" id="Ldw-PL-tDH">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <outlet property="formatter" destination="7uK-s8-QBE" id="gNQ-Ja-NZP"/>
+                        </connections>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hN4-aK-AjU">
+                    <rect key="frame" x="210" y="20" width="46" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Height" id="mfa-gz-f1f">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <outlet property="formatter" destination="7uK-s8-QBE" id="Pf7-T6-EW1"/>
+                        </connections>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="72m-dz-x2f">
+                    <rect key="frame" x="105" y="17" width="96" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="YxA-AI-h85">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="Yjx-id-Cdc" name="value" keyPath="self.widthInPixels" id="ee3-9p-mSV"/>
+                        <outlet property="formatter" destination="7uK-s8-QBE" id="un0-wf-fE5"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="pzL-IV-Xun">
+                    <rect key="frame" x="261" y="17" width="96" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Zz3-JZ-nBS">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="Yjx-id-Cdc" name="value" keyPath="self.heightInPixels" id="lNw-eI-enj"/>
+                        <outlet property="formatter" destination="7uK-s8-QBE" id="c4X-98-VJx"/>
+                    </connections>
+                </textField>
+            </subviews>
+        </customView>
+        <customObject id="Yjx-id-Cdc" customClass="SAVideoExportSettings"/>
+        <customObject id="ZXz-AX-ooX" customClass="SAVideoExportSettingsController">
+            <connections>
+                <outlet property="dimensionsRadioButtonMatrix" destination="FMj-ea-6IQ" id="YkM-dJ-cIz"/>
+                <outlet property="firstRadioCEll" destination="b7D-h3-jxo" id="NXg-Cr-eIe"/>
+                <outlet property="firstRadioCell" destination="b7D-h3-jxo" id="RTy-HC-gk0"/>
+                <outlet property="heightInPixelsTextField" destination="pzL-IV-Xun" id="wFr-qJ-K9V"/>
+                <outlet property="radioButton" destination="FMj-ea-6IQ" id="xeb-ze-oG3"/>
+                <outlet property="videoExportSettings" destination="Yjx-id-Cdc" id="HxT-Nl-wGd"/>
+                <outlet property="widthInPixelsTextField" destination="72m-dz-x2f" id="tbM-aO-NXW"/>
+            </connections>
+        </customObject>
+        <userDefaultsController representsSharedInstance="YES" id="Vz1-ef-cvR"/>
+    </objects>
+</document>
