@@ -18,7 +18,9 @@ Use the linked sliders that appear after processing to change the tile size and 
 
 By default, the vertical and horizontal sliders will be locked together. You can toggle locking on and off by clicking on the padlock icon in the lower right-hand corner of the animation window.
 
-To export re-pixelated video to a file, use the appropriate Export corresponding to the desired output format under the _File_ Menu.
+To export re-pixelated video to a file, use the appropriate Export corresponding to the desired output format under the _File_ Menu. The choices are QuickTime movie, MP4 video, and Animated GIF.
+
+GIF Exports are currently limited to animations that exhibit 256 or fewer distinct colors. Also, be advised that large frames and long durations can result in truly enormous output GIF file sizes.
 
 # Building from Source
 

@@ -382,7 +382,7 @@
                         {
                             (*framesEncountered)++; // This is either frames or the frameIndex, depending on whether we've intialized yet
                             
-                            NSLog(@"Hey, dummy! Incrementing framesEncountered! %i", *framesEncountered);
+                            NSLog(@"Incrementing framesEncountered! %i", *framesEncountered);
                             
                             if (frames==0U || [delayInCentisAfterFrames count] < frames)
                                 [delayInCentisAfterFrames addObject:[NSNumber numberWithUnsignedInt: delayTimeInCentis]];

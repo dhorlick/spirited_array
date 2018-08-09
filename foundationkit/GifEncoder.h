@@ -13,7 +13,12 @@
 {
 }
 
--(void) encode: (SpiritedArray*) designatedSpiritedArray FilePath: (NSString*)designatedFilePath;
+/**
+ * Attempts to encode and output the animation to a new GIF file.
+ *
+ * Returns the number of colors in the output palette. If it is greater than 256, conclude that the encoding failed.
+ */
+-(unsigned long) encode: (SpiritedArray*) designatedSpiritedArray FilePath: (NSString*)designatedFilePath;
 // +(uint) countColorsInSpiritedArray: (SpiritedArray*) spiritedArray;
 +(unsigned long) lowestPowerOfTwoThatIsNotLessThan: (unsigned long) value;
 

@@ -185,7 +185,17 @@
             NSLog(@"got file %@", fileName);
             
             GifEncoder* encoder = [GifEncoder new];
-            [encoder encode:[self.viewHelper freeze] FilePath:fileName]; // TODO find a way to do this without memorization
+            unsigned long colorsCount = [encoder encode:[self.viewHelper freeze] FilePath:fileName]; // TODO find a way to do this without memorization
+            if (colorsCount > 256U)
+            {
+                NSAlert *alert = [[NSAlert alloc] init];
+                [alert addButtonWithTitle:@"OK"];
+                [alert setMessageText:@"Too Many Output Colors"];
+                [alert setInformativeText:[NSString stringWithFormat:@"Sorry, GIF's only support palettes of 256 colors. Yours has %lu, and automatic palette reduction isn't supported yet. Try manually reducing your palette by reducing your frame size, or switching to a simpler tiling strategy.", colorsCount]];
+                [alert setAlertStyle:NSWarningAlertStyle];
+				
+                [alert beginSheetModalForWindow:self->_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+            }
         }
     }];
 }
