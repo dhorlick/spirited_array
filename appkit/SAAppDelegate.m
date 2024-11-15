@@ -64,7 +64,15 @@
                     
 					layer.bounds = [self->_view bounds];
                     layer.timeValue = 0;
-					layer.position = NSMakePoint(CGRectGetMidX([self->_view bounds]), CGRectGetMidY([self->_view bounds]));
+					if (@available(macOS 11, *))
+					{
+						layer.position = NSMakePoint(0, 0);
+					}
+					else
+					{
+						layer.position = NSMakePoint(CGRectGetMidX([self->_view bounds]), CGRectGetMidY([self->_view bounds]));
+					}
+					// NSLog(@"layer.position: %f, %f", layer.position.x, layer.position.y);
                     layer.delegate = self.viewHelper;
                     
                     CAMediaTimingFunction *timingfn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
