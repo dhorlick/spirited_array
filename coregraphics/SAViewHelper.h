@@ -14,7 +14,7 @@
 #import "SATileDrawingStrategy.h"
 #import "ImageMetapixelPalette.h"
 
-@interface SAViewHelper : NSObject
+@interface SAViewHelper : NSObject<CALayerDelegate, NSAnimationDelegate>
 {
     NSString* spiritedArraySourceFilePath; // TODO change this to an NSArray* of string?
     SpiritedArray* content;
