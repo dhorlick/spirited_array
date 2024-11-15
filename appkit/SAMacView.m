@@ -27,7 +27,6 @@
     [super setFrameSize:newSize];
     // NSLog(@"intercepted setFrameSize. new width = %f, new height = %f", newSize.width, newSize.height);
     self.layer.bounds = [self bounds];
-	int result = CGRectGetMidX([self bounds]);
     if (@available(macOS 11, *))
     {
         self.layer.position = NSMakePoint(0, 0);
