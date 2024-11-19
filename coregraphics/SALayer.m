@@ -29,6 +29,13 @@
         [self setNeedsDisplay];
     }
     
+	CALayer *blurLayer = [CALayer layer];
+	CIFilter *blurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+	[blurFilter setDefaults];
+	[blurFilter setValue:@0.0f forKey:@"inputRadius"];
+	blurLayer.backgroundFilters = [NSArray arrayWithObject:blurFilter];
+	[self addSublayer:blurLayer];  // thanks, https://stackoverflow.com/a/2822216/1634801
+	
     return self;
 }
 

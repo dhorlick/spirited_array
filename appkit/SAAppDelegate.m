@@ -349,6 +349,61 @@
      ];
 }
 
+-(IBAction)doBlurRadius0:(id)sender
+{
+	NSLog(@"doBlurRadius0 received");
+}
+
+-(IBAction)doBlurRadius1:(id)sender
+{
+	NSLog(@"doBlurRadius1 received");
+}
+
+-(IBAction)doBlurRadius2:(id)sender
+{
+	NSLog(@"doBlurRadius2 received");
+}
+
+-(IBAction)doBlurRadius3:(id)sender
+{
+	NSLog(@"doBlurRadius3 received");
+}
+
+-(IBAction)doBlurRadius4:(id)sender
+{
+	NSLog(@"doBlurRadius4 received");
+}
+
+-(IBAction)doBlurRadius5:(id)sender
+{
+	NSLog(@"doBlurRadius5 received");
+}
+
+-(IBAction)doBlurRadius6:(id)sender
+{
+	NSLog(@"doBlurRadius6 received");
+}
+
+-(IBAction)doBlurRadius7:(id)sender
+{
+	NSLog(@"doBlurRadius7 received");
+}
+
+-(IBAction)doBlurRadius8:(id)sender
+{
+	NSLog(@"doBlurRadius8 received");
+}
+
+-(IBAction)doBlurRadius9:(id)sender
+{
+	NSLog(@"doBlurRadius9 received");
+}
+
+-(IBAction)doBlurRadius10:(id)sender
+{
+	NSLog(@"doBlurRadius10 received");
+}
+
 -(float) leastUpheavalTileFootprintCorrectionFactor
 {
     float a = [self.videoExportSettingsController.videoExportSettings.widthInPixels floatValue] / (float)self.videoExportSettingsController.initialWidthInPixels;

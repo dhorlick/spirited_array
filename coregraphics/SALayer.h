@@ -13,8 +13,8 @@
 {
     SAViewHelper* viewHelper;
 }
-// @property (nonatomic) uint frameIndex; // TODO add "assign"?
 @property (nonatomic) int timeValue;
+@property (nonatomic) int blurValue;
 
 -(id)initWithViewHelper: (SAViewHelper*) designatedViewHelper;
 -(SAViewHelper*) viewHelper;

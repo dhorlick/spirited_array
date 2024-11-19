@@ -57,4 +57,16 @@
 
 - (IBAction)toggleResizeTileWidthAndHeightTogether:(id)sender;
 
+-(IBAction)doBlurRadius0:(id)sender;
+-(IBAction)doBlurRadius1:(id)sender;
+-(IBAction)doBlurRadius2:(id)sender;
+-(IBAction)doBlurRadius3:(id)sender;
+-(IBAction)doBlurRadius4:(id)sender;
+-(IBAction)doBlurRadius5:(id)sender;
+-(IBAction)doBlurRadius6:(id)sender;
+-(IBAction)doBlurRadius7:(id)sender;
+-(IBAction)doBlurRadius8:(id)sender;
+-(IBAction)doBlurRadius9:(id)sender;
+-(IBAction)doBlurRadius10:(id)sender;
+
 @end

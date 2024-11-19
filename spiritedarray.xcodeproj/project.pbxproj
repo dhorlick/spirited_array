@@ -140,7 +140,6 @@
 		236E3FCB1748F05C00A071CC /* SAReductionContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SAReductionContext.m; path = foundationkit/SAReductionContext.m; sourceTree = SOURCE_ROOT; };
 		237B3EA52CECCAF000A9C74C /* libgif.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgif.a; path = lib/libgif.a; sourceTree = "<group>"; };
 		237B3EA72CECD57800A9C74C /* libgif-i386.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgif-i386.a"; path = "lib/libgif-i386.a"; sourceTree = "<group>"; };
-		2380981B163C57E4002DAC0F /* libungif.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libungif.a; sourceTree = "<group>"; };
 		2380981D163C5917002DAC0F /* UnUpSampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnUpSampler.h; path = foundationkit/UnUpSampler.h; sourceTree = SOURCE_ROOT; };
 		2380981E163C5917002DAC0F /* UnUpSampler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnUpSampler.m; path = foundationkit/UnUpSampler.m; sourceTree = SOURCE_ROOT; };
 		23809820163E78E6002DAC0F /* SpiritedArrayIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpiritedArrayIterator.h; path = ../foundationkit/SpiritedArrayIterator.h; sourceTree = "<group>"; };
@@ -305,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				2354BC95163246C000CF11F6 /* gif_lib.h */,
-				2380981B163C57E4002DAC0F /* libungif.a */,
 			);
 			path = lib;
 			sourceTree = SOURCE_ROOT;
