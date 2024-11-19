@@ -39,7 +39,8 @@
     
     if (colorCount<=256U)
     {
-		GifFileType* gifFile = EGifOpenFileName([designatedFilePath UTF8String], 1);
+		int errorCode;
+		GifFileType* gifFile = EGifOpenFileName([designatedFilePath UTF8String], 1, &errorCode);
 		GifColorType* gifColorTypeArray = (GifColorType*) malloc(colorCount*sizeof(GifColorType));
 		
 		NSEnumerator *enumerator = [colors objectEnumerator];
@@ -59,7 +60,7 @@
 		unsigned long powerOfTwoColorCount = [GifEncoder lowestPowerOfTwoThatIsNotLessThan: colorCount];
 		NSLog(@"powerOfTwoColorCount = %lu", powerOfTwoColorCount);
 		
-		ColorMapObject* gifColorMap = MakeMapObject((uint)powerOfTwoColorCount, gifColorTypeArray);
+		ColorMapObject* gifColorMap = GifMakeMapObject((uint)powerOfTwoColorCount, gifColorTypeArray);
 			// TODO fill-out the color map with some kind of blank entries for unusued power-of-two cells?
 		
 		int putScreenDescResult = EGifPutScreenDesc(gifFile, [designatedSpiritedArray width], [designatedSpiritedArray height], 255U, 0, gifColorMap);
@@ -102,9 +103,9 @@
 		}
 		
 		NSLog(@"OK, done");
-		EGifCloseFile(gifFile);
+		EGifCloseFile(gifFile, &errorCode);
 		// TODO FreeMapObject(gifColorMap); ?
-		free(rasterBits);		
+		free(rasterBits);
 	}
 	
     return colorCount;

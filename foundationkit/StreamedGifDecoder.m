@@ -184,7 +184,8 @@
 		// need to respool GIF
 		NSLog (@"respooling GIF for REQUEST of (%u, %u) of frame %u when frameIndex = %u and lineWithinFrame = %u", requestedX, requestedY, requestedFrameIndex, frameIndex, lineWithinFrame);
 		
-		DGifCloseFile(gifFile);
+		int errorCode;
+		DGifCloseFile(gifFile, &errorCode);
 		gifFile = nil;
 		// NSLog (@"respooled");
         
@@ -451,11 +452,12 @@
 	{
 		// NSLog (@"opening/re-opening GIF…");
 		
-		gifFile = DGifOpenFileName([filePath UTF8String]);
+		int errorCode;
+		gifFile = DGifOpenFileName([filePath UTF8String], &errorCode);
 		if (gifFile == (GifFileType *)NULL)
 		{
 			@throw [NSException exceptionWithName:NSInternalInconsistencyException
-					reason:[NSString stringWithFormat: @"Couldn't open file %@.", filePath]
+					reason:[NSString stringWithFormat: @"Couldn't open file %@: error code %i", filePath, errorCode]
 					userInfo:nil];
 		}
 		
@@ -496,11 +498,12 @@
 	{
 		NSLog (@"Closing GIF…");
 		
-		int result = DGifCloseFile(gifFile);
+		int errorCode;
+		int result = DGifCloseFile(gifFile, &errorCode);
 		if (result == D_GIF_ERR_CLOSE_FAILED)
 		{
 			@throw [NSException exceptionWithName:NSInternalInconsistencyException
-							reason:[NSString stringWithFormat:@"Could not close GIF file."]
+										   reason:[NSString stringWithFormat:@"Could not close GIF file, error code: %i", errorCode]
 							userInfo:nil];
 		}
 		
