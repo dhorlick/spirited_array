@@ -12,11 +12,13 @@
 @interface SALayer : CALayer
 {
     SAViewHelper* viewHelper;
+	CALayer* blurLayer;
 }
 @property (nonatomic) int timeValue;
-@property (nonatomic) int blurValue;
+@property (nonatomic) float blurRadius;
 
 -(id)initWithViewHelper: (SAViewHelper*) designatedViewHelper;
 -(SAViewHelper*) viewHelper;
+-(void)updateBlurLayer;
 
 @end

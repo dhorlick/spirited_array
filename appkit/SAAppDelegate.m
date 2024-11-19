@@ -351,57 +351,90 @@
 
 -(IBAction)doBlurRadius0:(id)sender
 {
-	NSLog(@"doBlurRadius0 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 0;
+	[SAAppDelegate uncheckAllBut:_radius0 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius1:(id)sender
 {
-	NSLog(@"doBlurRadius1 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 1;
+	[SAAppDelegate uncheckAllBut:_radius1 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius2:(id)sender
 {
-	NSLog(@"doBlurRadius2 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 2;
+	[SAAppDelegate uncheckAllBut:_radius1 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius3:(id)sender
 {
-	NSLog(@"doBlurRadius3 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 3;
+	[SAAppDelegate uncheckAllBut:_radius3 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius4:(id)sender
 {
-	NSLog(@"doBlurRadius4 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 4;
+	[SAAppDelegate uncheckAllBut:_radius4 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius5:(id)sender
 {
-	NSLog(@"doBlurRadius5 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 5;
+	[SAAppDelegate uncheckAllBut:_radius5 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius6:(id)sender
 {
-	NSLog(@"doBlurRadius6 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 6;
+	[SAAppDelegate uncheckAllBut:_radius6 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius7:(id)sender
 {
-	NSLog(@"doBlurRadius7 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 7;
+	[SAAppDelegate uncheckAllBut:_radius7 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius8:(id)sender
 {
-	NSLog(@"doBlurRadius8 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 8;
+	[SAAppDelegate uncheckAllBut:_radius8 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius9:(id)sender
 {
-	NSLog(@"doBlurRadius9 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 9;
+	[SAAppDelegate uncheckAllBut:_radius9 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(IBAction)doBlurRadius10:(id)sender
 {
-	NSLog(@"doBlurRadius10 received");
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = 10;
+	[SAAppDelegate uncheckAllBut:_radius10 In:_blur];
+	[layer updateBlurLayer];
 }
 
 -(float) leastUpheavalTileFootprintCorrectionFactor

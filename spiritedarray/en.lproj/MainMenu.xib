@@ -313,6 +313,7 @@
         </window>
         <customObject id="494" customClass="SAAppDelegate">
             <connections>
+                <outlet property="blur" destination="QeN-aT-ExK" id="lAB-Ic-hXK"/>
                 <outlet property="exportAsGif" destination="562" id="daQ-Ax-oa6"/>
                 <outlet property="exportAsH264EncodedMp4Video" destination="593" id="8qJ-0X-ETL"/>
                 <outlet property="exportAsH264EncodedQuickTimeMovie" destination="594" id="OQp-NI-Nvt"/>
@@ -321,6 +322,17 @@
                 <outlet property="graphPaper" destination="586" id="587"/>
                 <outlet property="lightEmittingDiodes" destination="297" id="569"/>
                 <outlet property="lockIcon" destination="pam-5Y-fdA" id="yGg-9q-NAb"/>
+                <outlet property="radius0" destination="7rs-XY-9Q4" id="sjg-fo-Ug5"/>
+                <outlet property="radius1" destination="8PM-TK-oKm" id="AJh-T4-4PM"/>
+                <outlet property="radius10" destination="r5o-Ku-bVx" id="CW4-gN-UmO"/>
+                <outlet property="radius2" destination="7Cy-A5-hrs" id="gQZ-dJ-qbj"/>
+                <outlet property="radius3" destination="Xaw-zr-CVI" id="hws-gi-hWg"/>
+                <outlet property="radius4" destination="3Uz-JW-Ad2" id="4c2-DY-UCt"/>
+                <outlet property="radius5" destination="KnR-L6-ReB" id="FeT-vF-Q26"/>
+                <outlet property="radius6" destination="q9x-le-Beb" id="TGz-uF-xXO"/>
+                <outlet property="radius7" destination="2wy-eh-NSt" id="OfR-eZ-ozB"/>
+                <outlet property="radius8" destination="hI9-md-WcA" id="vV6-Fd-2T0"/>
+                <outlet property="radius9" destination="eS0-km-7sp" id="w3U-yO-EVF"/>
                 <outlet property="solidColors" destination="567" id="571"/>
                 <outlet property="tileHeightSlider" destination="uKB-5d-Qif" id="GpU-HV-xfg"/>
                 <outlet property="tileWidthSlider" destination="Iyv-1O-0yk" id="vnp-8J-Mmv"/>
