@@ -319,9 +319,10 @@
 		 if (returnCode == NSModalResponseOK)
          {
              float tileFootprintCorrectionFactor = [self leastUpheavalTileFootprintCorrectionFactor];
+			 SALayer* layer = (SALayer*)(self->_view.layer);
              
              SAH264AvEncoder* encoder = [SAH264AvEncoder new];
-             [encoder encode:[self.viewHelper spiritedArraySourceFilePath] TileDrawingStrategy:[self.viewHelper tileDrawingStrategy] WidthInPixels:[self.videoExportSettingsController.videoExportSettings.widthInPixels unsignedIntValue] HeightInPixels:[self.videoExportSettingsController.videoExportSettings.heightInPixels unsignedIntValue] TileWidthInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileWidth TileHeightInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileHeight Url:[panel URL] QuicktimeContainer:NO];
+             [encoder encode:[self.viewHelper spiritedArraySourceFilePath] TileDrawingStrategy:[self.viewHelper tileDrawingStrategy] WidthInPixels:[self.videoExportSettingsController.videoExportSettings.widthInPixels unsignedIntValue] HeightInPixels:[self.videoExportSettingsController.videoExportSettings.heightInPixels unsignedIntValue] TileWidthInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileWidth TileHeightInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileHeight BlurRadius:layer.blurRadius Url:[panel URL] QuicktimeContainer:NO];
          }
      }
      ];
@@ -341,9 +342,10 @@
 		 if (returnCode == NSModalResponseOK)
          {
              float tileFootprintCorrectionFactor = [self leastUpheavalTileFootprintCorrectionFactor];
+			 SALayer* layer = (SALayer*)(self->_view.layer);
              
              SAH264AvEncoder* encoder = [SAH264AvEncoder new];
-             [encoder encode:[self.viewHelper spiritedArraySourceFilePath] TileDrawingStrategy:[self.viewHelper tileDrawingStrategy] WidthInPixels:[self.videoExportSettingsController.videoExportSettings.widthInPixels unsignedIntValue] HeightInPixels:[self.videoExportSettingsController.videoExportSettings.heightInPixels unsignedIntValue] TileWidthInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileWidth TileHeightInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileHeight Url:[panel URL] QuicktimeContainer:YES];
+			 [encoder encode:[self.viewHelper spiritedArraySourceFilePath] TileDrawingStrategy:[self.viewHelper tileDrawingStrategy] WidthInPixels:[self.videoExportSettingsController.videoExportSettings.widthInPixels unsignedIntValue] HeightInPixels:[self.videoExportSettingsController.videoExportSettings.heightInPixels unsignedIntValue] TileWidthInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileWidth TileHeightInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileHeight BlurRadius:layer.blurRadius Url:[panel URL] QuicktimeContainer:YES];
          }
      }
      ];

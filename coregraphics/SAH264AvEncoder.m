@@ -14,7 +14,7 @@
 
 @implementation SAH264AvEncoder
 
--(void) encode:(NSString*)spiritedArraySourceFilePath TileDrawingStrategy:tileDrawingStrategy WidthInPixels:(uint)widthInPixels HeightInPixels:(uint)heightInPixels TileWidthInPixels:(uint)tileWidthInPixels TileHeightInPixels:(uint)tileHeightInPixels Url:(NSURL*)url QuicktimeContainer:(BOOL)quicktimeContainer
+-(void) encode:(NSString*)spiritedArraySourceFilePath TileDrawingStrategy:tileDrawingStrategy WidthInPixels:(uint)widthInPixels HeightInPixels:(uint)heightInPixels TileWidthInPixels:(uint)tileWidthInPixels TileHeightInPixels:(uint)tileHeightInPixels BlurRadius:(uint)blurRadius Url:(NSURL*)url QuicktimeContainer:(BOOL)quicktimeContainer
 {
     // borrowed liberally from http://stackoverflow.com/questions/3741323/how-do-i-export-uiimage-array-as-a-movie/3742212#3742212 and http://www.codegod.com/AVAssetWriterInputPixelBufferAdaptor-use-to-append-QID1296437.aspx :
     
@@ -108,6 +108,28 @@
                 
                 [h264ViewHelper drawRect:CGRectMake(0, 0, frameSize.width, frameSize.height) Context:context Frame: frame];
                 NSParameterAssert(context);
+				
+				if (blurRadius != 0)
+				{
+					// Convert the CGContextRef to a CGImageRef
+					CGImageRef cgImage = CGBitmapContextCreateImage(context);
+
+					// Create a CIImage from the CGImage
+					CIImage *ciImage = [CIImage imageWithCGImage:cgImage];
+
+					// Apply a CIFilter
+					CIFilter *blurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+					[blurFilter setDefaults];
+					[blurFilter setValue:ciImage forKey:kCIInputImageKey];
+					[blurFilter setValue: [NSNumber numberWithFloat:blurRadius] forKey:@"inputRadius"];
+					CIImage *filteredImage = [blurFilter outputImage];
+
+					// Render the filtered CIImage back into the pixel buffer
+					CIContext *ciContext = [CIContext contextWithOptions:nil];
+					[ciContext render:filteredImage toCVPixelBuffer:pxbuffer];
+
+				}
+				
                 CVPixelBufferUnlockBaseAddress(pxbuffer, 0);
                 
                 CVPixelBufferRef buffer = (CVPixelBufferRef)pxbuffer;

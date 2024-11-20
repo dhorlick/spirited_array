@@ -13,6 +13,6 @@
 {
 }
 
--(void) encode:(NSString*)spiritedArraySourceFilePath TileDrawingStrategy:tileDrawingStrategy WidthInPixels:(uint)widthInPixels HeightInPixels:(uint)heightInPixels TileWidthInPixels:(uint)tileWidthInPixels TileHeightInPixels:(uint)tileHeightInPixels Url:(NSURL*)url QuicktimeContainer:(BOOL)quicktimeContainer;
+-(void) encode:(NSString*)spiritedArraySourceFilePath TileDrawingStrategy:tileDrawingStrategy WidthInPixels:(uint)widthInPixels HeightInPixels:(uint)heightInPixels TileWidthInPixels:(uint)tileWidthInPixels TileHeightInPixels:(uint)tileHeightInPixels BlurRadius:(uint)blurRadius Url:(NSURL*)url QuicktimeContainer:(BOOL)quicktimeContainer;
 
 @end
