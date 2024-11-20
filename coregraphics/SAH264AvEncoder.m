@@ -16,7 +16,16 @@
 
 -(void) encode:(NSString*)spiritedArraySourceFilePath TileDrawingStrategy:tileDrawingStrategy WidthInPixels:(uint)widthInPixels HeightInPixels:(uint)heightInPixels TileWidthInPixels:(uint)tileWidthInPixels TileHeightInPixels:(uint)tileHeightInPixels BlurRadius:(uint)blurRadius Url:(NSURL*)url QuicktimeContainer:(BOOL)quicktimeContainer
 {
-    // borrowed liberally from http://stackoverflow.com/questions/3741323/how-do-i-export-uiimage-array-as-a-movie/3742212#3742212 and http://www.codegod.com/AVAssetWriterInputPixelBufferAdaptor-use-to-append-QID1296437.aspx :
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	if ([fileManager fileExistsAtPath:url.path]) {
+		NSError *error = nil;
+		[fileManager removeItemAtURL:url error:&error];
+		if (error) {
+			NSLog(@"Error removing file: %@", error.localizedDescription);
+		}
+	}
+	
+	// borrowed liberally from http://stackoverflow.com/questions/3741323/how-do-i-export-uiimage-array-as-a-movie/3742212#3742212 and http://www.codegod.com/AVAssetWriterInputPixelBufferAdaptor-use-to-append-QID1296437.aspx :
     
     NSRect rect;
     rect.origin.x    = 0;
@@ -50,6 +59,9 @@
         outputFileType = AVFileTypeMPEG4;
     
     AVAssetWriter *videoWriter = [[AVAssetWriter alloc] initWithURL: url fileType:outputFileType error:&error];
+	if (error) {
+		NSLog(@"Error creating an AVAssetWriter: %@", error.localizedDescription);
+	}
     NSParameterAssert(videoWriter);
     if (!quicktimeContainer)
         videoWriter.shouldOptimizeForNetworkUse = YES;
