@@ -33,7 +33,7 @@
     
     [openDlg beginSheetModalForWindow: _window completionHandler: ^(NSInteger returnCode)
         {
-            if (returnCode == NSOKButton)
+		    if (returnCode == NSModalResponseOK)
             {
                 NSURL* toOpen = [openDlg URL];
                 NSString* fileName = [toOpen path];
@@ -165,7 +165,7 @@
                     [alert addButtonWithTitle:@"OK"];
                     [alert setMessageText:@"Unrecognized File type"];
                     [alert setInformativeText:@"Sorry, but you can only open GIF and PNG files."];
-                    [alert setAlertStyle:NSWarningAlertStyle];
+					[alert setAlertStyle:NSAlertStyleWarning];
                     
 					[alert beginSheetModalForWindow:self->_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
                 }
@@ -185,7 +185,7 @@
     [saveDialog setAllowedFileTypes: [[NSArray alloc] initWithObjects:@"gif", nil]];
     [saveDialog beginSheetModalForWindow: _window completionHandler: ^(NSInteger returnCode)
     {
-        if (returnCode == NSOKButton)
+		if (returnCode == NSModalResponseOK)
         {
             NSURL* fileUrl = [saveDialog URL];
             NSString* fileName = [fileUrl path];
@@ -200,7 +200,7 @@
                 [alert addButtonWithTitle:@"OK"];
                 [alert setMessageText:@"Too Many Output Colors"];
                 [alert setInformativeText:[NSString stringWithFormat:@"Sorry, GIF's only support palettes of 256 colors. Yours has %lu, and automatic palette reduction isn't supported yet. Try manually reducing your palette by reducing your frame size, or switching to a simpler tiling strategy.", colorsCount]];
-                [alert setAlertStyle:NSWarningAlertStyle];
+				[alert setAlertStyle:NSAlertStyleWarning];
 				
                 [alert beginSheetModalForWindow:self->_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
             }
@@ -264,9 +264,9 @@
     {
         NSMenuItem* menuItem = [menuItems objectAtIndex:i];
         if (menuItem==selection)
-            [menuItem setState:NSOnState];
+			[menuItem setState:NSControlStateValueOn];
         else
-            [menuItem setState:NSOffState];
+			[menuItem setState:NSControlStateValueOff];
         
         if ([menuItem hasSubmenu])
         {
@@ -283,9 +283,9 @@
     {
         NSMenuItem* menuItem = [menuItems objectAtIndex:i];
         if ([[menuItem title] isEqual: name])
-            [menuItem setState:NSOnState];
+			[menuItem setState:NSControlStateValueOn];
         else
-            [menuItem setState:NSOffState];
+			[menuItem setState:NSControlStateValueOff];
 
         if ([menuItem hasSubmenu])
         {
@@ -316,7 +316,7 @@
     
     [panel beginSheetModalForWindow: _window completionHandler: ^(NSInteger returnCode)
      {
-         if (returnCode == NSOKButton)
+		 if (returnCode == NSModalResponseOK)
          {
              float tileFootprintCorrectionFactor = [self leastUpheavalTileFootprintCorrectionFactor];
              
@@ -338,7 +338,7 @@
     
     [panel beginSheetModalForWindow: _window completionHandler: ^(NSInteger returnCode)
      {
-         if (returnCode == NSOKButton)
+		 if (returnCode == NSModalResponseOK)
          {
              float tileFootprintCorrectionFactor = [self leastUpheavalTileFootprintCorrectionFactor];
              
