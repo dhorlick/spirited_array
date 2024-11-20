@@ -38,7 +38,7 @@
                 NSURL* toOpen = [openDlg URL];
                 NSString* fileName = [toOpen path];
                 
-                NSLog(@"got file %@", fileName);
+                // NSLog(@"got file %@", fileName);
                 
 				[self->_view setPostsBoundsChangedNotifications: YES];
                 
@@ -79,15 +79,15 @@
                     
                     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"timeValue"];
                     anim.fromValue = 0;
-                    NSLog(@"Mark! [self.viewHelper frames]=%u", [self.viewHelper frames]);
+                    // NSLog(@"Mark! [self.viewHelper frames]=%u", [self.viewHelper frames]);
                     anim.toValue = [NSNumber numberWithDouble:(double)[self.viewHelper frames]-0.01];
                     anim.timingFunction = timingfn;
                     
                     uint average = [[self.viewHelper content] averageDelayInCentisBetweenFrames];
-                    NSLog(@"average delay between frames in centis = %u", average);
+                    // NSLog(@"average delay between frames in centis = %u", average);
                     
                     anim.duration = average * (double)[self.viewHelper frames] / 100.0;
-                    NSLog(@"anim.duration = %f", anim.duration);
+                    // NSLog(@"anim.duration = %f", anim.duration);
                     anim.repeatCount = INFINITY;
                     anim.fillMode = kCAFillModeForwards;
                     anim.removedOnCompletion = NO;
@@ -192,7 +192,7 @@
             NSURL* fileUrl = [saveDialog URL];
             NSString* fileName = [fileUrl path];
             
-            NSLog(@"got file %@", fileName);
+            // NSLog(@"got file %@", fileName);
             
             GifEncoder* encoder = [GifEncoder new];
             unsigned long colorsCount = [encoder encode:[self.viewHelper freeze] FilePath:fileName]; // TODO find a way to do this without memorization
@@ -455,7 +455,7 @@
         c = 1.0f;
     }
     
-    NSLog(@"tileFootprintCorrectionFactor=%f", c);
+    // NSLog(@"tileFootprintCorrectionFactor=%f", c);
     
     return c;
 }

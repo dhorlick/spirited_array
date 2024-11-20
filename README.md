@@ -2,7 +2,7 @@ _Spirited Array_ is a Mac application for de-pixelating and then whimsically re-
 
 # Requirements
 
-As of v1.0.3, Spirited Array is now a universal binary for both Intel and Apple Silicon macs. Additionally, it also now requires macOS 11.5 or later.
+As of v1.0.3, Spirited Array is now a universal binary for both Intel and Apple Silicon macs. Additionally, it also now requires macOS 11 or later.
 
 v1.0.2 will run on macOS versions as old as 10.7 and at least as new as 15.1.
 

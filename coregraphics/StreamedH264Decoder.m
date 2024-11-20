@@ -39,7 +39,7 @@
         
         memorized = nil;
         
-        NSLog(@"Async Time");
+        // NSLog(@"Async Time");
         
         [asset loadValuesAsynchronouslyForKeys:[NSArray arrayWithObject:@"tracks"] completionHandler:
          ^{
@@ -127,7 +127,7 @@
                                     }
                                 }
                                 
-                                NSLog(@"blackPixels = %u", blackPixels);
+                                // NSLog(@"blackPixels = %u", blackPixels);
                                 
                                 // Unlock the image buffer
                                 CVPixelBufferUnlockBaseAddress(imageBuffer,0);
@@ -135,8 +135,8 @@
                             }
                         }
 
-                        NSLog([NSString stringWithFormat:@"OK, ready now."]);
-						NSLog(@"frames = %u", self->frames);
+                        // NSLog([NSString stringWithFormat:@"OK, ready now."]);
+						// NSLog(@"frames = %u", self->frames);
 						self->ready = YES;
                         [self _fireAndClearLoadListeners];
                     }
@@ -146,25 +146,25 @@
         // thanks, http://www.7twenty7.com/blog/2010/11/video-processing-with-av-foundation
     }
     
-    NSLog(@"Returning self…");
+    // NSLog(@"Returning self…");
     
     return self;
 }
 
 - (void) _fireAndClearLoadListeners
 {
-    NSLog(@"Hello! ][");
+    // NSLog(@"Hello! ][");
 }
 
 - (uint) frames
 {
-    NSLog(@"Returning super frames %u", [super frames]);
+    // NSLog(@"Returning super frames %u", [super frames]);
     return [super frames];
 }
 
 - (SAColorType) pixelColorAtFrame:(uint)frame X:(uint)x Y:(uint)y
 {
-    NSLog(@"SHD frames = %u", frames);
+    // NSLog(@"SHD frames = %u", frames);
     return [memorized pixelColorAtFrame:frame X:x Y:y];
 }
 

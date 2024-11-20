@@ -68,7 +68,7 @@
 		
 		// double powerOfTwoColorCount = round(pow(ceil(log2((double)colorCount)), 2.0));
 		unsigned long powerOfTwoColorCount = [GifEncoder lowestPowerOfTwoThatIsNotLessThan: colorCount];
-		NSLog(@"powerOfTwoColorCount = %lu", powerOfTwoColorCount);
+		// NSLog(@"powerOfTwoColorCount = %lu", powerOfTwoColorCount);
 		
 		ColorMapObject* gifColorMap = GifMakeMapObject((uint)powerOfTwoColorCount, gifColorTypeArray);
 			// TODO fill-out the color map with some kind of blank entries for unusued power-of-two cells?
@@ -79,13 +79,13 @@
 			@throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Call to EGifPutScreenDesc returned %i.", putScreenDescResult] userInfo: nil];
 		}
 		
-		NSLog(@"Wrote color table. Now indexing individual pixels…");
+		// NSLog(@"Wrote color table. Now indexing individual pixels…");
 		
 		rasterBits = (GifPixelType*) malloc ([designatedSpiritedArray width] * sizeof(GifPixelType));
 		
 		for (uint f=0U; f<[designatedSpiritedArray frames]; f++)
 		{
-			NSLog(@"Frame #%u…",f);
+			// NSLog(@"Frame #%u…",f);
 			
 			int putImageDescResult = EGifPutImageDesc(gifFile, 0, 0, [designatedSpiritedArray width], [designatedSpiritedArray height], 0, 0);
 			// EGifPutExtensionFirst(gifFile);
@@ -112,7 +112,7 @@
 			}
 		}
 		
-		NSLog(@"OK, done");
+		// NSLog(@"OK, done");
 		EGifCloseFile(gifFile, &errorCode);
 		// TODO FreeMapObject(gifColorMap); ?
 		free(rasterBits);

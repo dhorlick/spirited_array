@@ -13,9 +13,9 @@
 
 +(SpiritedArray *) build:(NSString *)imageFileName
 {
-	NSLog(@"imageFileName = %@", imageFileName);
+	// NSLog(@"imageFileName = %@", imageFileName);
 	NSString* extension = [SpiritedArrayFactory fileExtension: imageFileName];
-	NSLog(@"extension = %@", extension);
+	// NSLog(@"extension = %@", extension);
 	
 	if ([extension caseInsensitiveCompare: @"gif"]==0)
 	{
@@ -25,7 +25,7 @@
             return streamedGifDecoder;
         else
         {
-            NSLog(@"Boom, interlaced!");
+            // NSLog(@"Boom, interlaced!");
             return [streamedGifDecoder unInterlace];
         }
 	}

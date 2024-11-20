@@ -18,13 +18,13 @@
     {
         if ([designatedSpiritedArray streamed] && [designatedSpiritedArray width] * [designatedSpiritedArray height] < 500000)
         {
-            NSLog(@"Memorizing…");
+            // NSLog(@"Memorizing…");
             spiritedArray = [[MemorizedSpiritedArray alloc] initWithSpiritedArray:designatedSpiritedArray];
-            NSLog(@"Memorized.");
+            // NSLog(@"Memorized.");
         }
         else
         {
-            NSLog(@"Proxying…");
+            // NSLog(@"Proxying…");
             spiritedArray = designatedSpiritedArray;
         }
         

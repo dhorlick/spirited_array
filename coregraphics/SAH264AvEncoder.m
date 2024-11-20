@@ -36,17 +36,15 @@
     SAConcreteBounded* concreteBounded = [[SAConcreteBounded alloc] initWith: rect];
     
     SAMacroblockedBounded* replacementBounded = [[SAMacroblockedBounded alloc] initWithBounded:concreteBounded AndMacroblockOfWidth:8U AndHeight:8U];
-    NSLog(@"replacementBounded = %@", replacementBounded);
+    // NSLog(@"replacementBounded = %@", replacementBounded);
     
     SAViewHelper* h264ViewHelper = [[SAViewHelper alloc] initWith:replacementBounded Path:spiritedArraySourceFilePath];
     [h264ViewHelper setTileDrawingStrategy:tileDrawingStrategy];
     h264ViewHelper.desiredTileWidth = tileWidthInPixels;
     h264ViewHelper.desiredTileHeight = tileHeightInPixels;
     
-    NSLog(@"newBounded = %@", [h264ViewHelper bounded]);
-    NSLog(@"    (width=%f, height=%f)", [h264ViewHelper bounds].size.width, [h264ViewHelper bounds].size.height);
-    
-    // 1) Wire the writer:
+    // NSLog(@"newBounded = %@", [h264ViewHelper bounded]);
+    // NSLog(@"    (width=%f, height=%f)", [h264ViewHelper bounds].size.width, [h264ViewHelper bounds].size.height);
     
     CGSize frameSize = {[h264ViewHelper bounds].size.width, [h264ViewHelper bounds].size.height};
     
@@ -101,7 +99,7 @@
     
     [writerInput requestMediaDataWhenReadyOnQueue:assetWriterQueue usingBlock:^(void)
         {
-            NSLog(@"    again, width=%f, height=%f", [h264ViewHelper bounds].size.width, [h264ViewHelper bounds].size.height);
+            // NSLog(@"    again, width=%f, height=%f", [h264ViewHelper bounds].size.width, [h264ViewHelper bounds].size.height);
             
             while ([writerInput isReadyForMoreMediaData])
             {
@@ -156,7 +154,7 @@
                 
                 if (frame >= [[h264ViewHelper content] frames])
                 {
-                    NSLog(@"our work is done here.");
+                    // NSLog(@"our work is done here.");
                     [writerInput markAsFinished];
                     [videoWriter endSessionAtSourceTime:CMTimeMake(time,100)];
                     [videoWriter finishWriting];
