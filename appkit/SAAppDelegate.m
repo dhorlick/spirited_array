@@ -112,6 +112,8 @@
                     [self.tileWidthSlider setHidden:NO];
                     [self.tileHeightSlider setHidden:NO];
                     [self.lockIcon setHidden:NO];
+					
+					[SAAppDelegate uncheckAllBut:_radius0 In:self->_blur];
                     
                     NSString* title = [[toOpen pathComponents] lastObject];
                     

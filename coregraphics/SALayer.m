@@ -24,12 +24,11 @@
     if (self)
     {
         viewHelper = designatedViewHelper;
-        // self.frameIndex = 0;
+		self.blurRadius = 0;
         self.timeValue = 0;
+		[self updateBlurLayer];
         [self setNeedsDisplay];
     }
-    
-	[self updateBlurLayer];
 	
     return self;
 }
