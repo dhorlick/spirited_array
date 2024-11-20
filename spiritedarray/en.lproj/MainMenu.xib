@@ -208,7 +208,7 @@
                     </menu>
                 </menuItem>
                 <menuItem title="Window" id="19">
-                    <menu key="submenu" title="Window" systemMenu="window" id="24">
+                    <menu key="submenu" title="Window" id="24">
                         <items>
                             <menuItem title="Minimize" keyEquivalent="m" id="23">
                                 <connections>
@@ -218,6 +218,11 @@
                             <menuItem title="Zoom" id="239">
                                 <connections>
                                     <action selector="performZoom:" target="-1" id="240"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Center" id="241">
+                                <connections>
+                                    <action selector="centerWindow:" target="494" id="jH8-5N-rrS"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="92">

@@ -441,6 +441,11 @@
 	[layer updateBlurLayer];
 }
 
+-(IBAction)centerWindow:(id)sender
+{
+	[[self.view window] center];
+}
+
 -(float) leastUpheavalTileFootprintCorrectionFactor
 {
     float a = [self.videoExportSettingsController.videoExportSettings.widthInPixels floatValue] / (float)self.videoExportSettingsController.initialWidthInPixels;
