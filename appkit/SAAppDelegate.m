@@ -33,7 +33,7 @@
     
     [openDlg beginSheetModalForWindow: _window completionHandler: ^(NSInteger returnCode)
         {
-            if (returnCode == NSOKButton)
+		    if (returnCode == NSModalResponseOK)
             {
                 NSURL* toOpen = [openDlg URL];
                 NSString* fileName = [toOpen path];
@@ -112,6 +112,8 @@
                     [self.tileWidthSlider setHidden:NO];
                     [self.tileHeightSlider setHidden:NO];
                     [self.lockIcon setHidden:NO];
+					
+					[SAAppDelegate uncheckAllBut:_radius0 In:self->_blur];
                     
                     NSString* title = [[toOpen pathComponents] lastObject];
                     
@@ -165,7 +167,7 @@
                     [alert addButtonWithTitle:@"OK"];
                     [alert setMessageText:@"Unrecognized File type"];
                     [alert setInformativeText:@"Sorry, but you can only open GIF and PNG files."];
-                    [alert setAlertStyle:NSWarningAlertStyle];
+					[alert setAlertStyle:NSAlertStyleWarning];
                     
 					[alert beginSheetModalForWindow:self->_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
                 }
@@ -185,7 +187,7 @@
     [saveDialog setAllowedFileTypes: [[NSArray alloc] initWithObjects:@"gif", nil]];
     [saveDialog beginSheetModalForWindow: _window completionHandler: ^(NSInteger returnCode)
     {
-        if (returnCode == NSOKButton)
+		if (returnCode == NSModalResponseOK)
         {
             NSURL* fileUrl = [saveDialog URL];
             NSString* fileName = [fileUrl path];
@@ -200,7 +202,7 @@
                 [alert addButtonWithTitle:@"OK"];
                 [alert setMessageText:@"Too Many Output Colors"];
                 [alert setInformativeText:[NSString stringWithFormat:@"Sorry, GIF's only support palettes of 256 colors. Yours has %lu, and automatic palette reduction isn't supported yet. Try manually reducing your palette by reducing your frame size, or switching to a simpler tiling strategy.", colorsCount]];
-                [alert setAlertStyle:NSWarningAlertStyle];
+				[alert setAlertStyle:NSAlertStyleWarning];
 				
                 [alert beginSheetModalForWindow:self->_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
             }
@@ -264,9 +266,9 @@
     {
         NSMenuItem* menuItem = [menuItems objectAtIndex:i];
         if (menuItem==selection)
-            [menuItem setState:NSOnState];
+			[menuItem setState:NSControlStateValueOn];
         else
-            [menuItem setState:NSOffState];
+			[menuItem setState:NSControlStateValueOff];
         
         if ([menuItem hasSubmenu])
         {
@@ -283,9 +285,9 @@
     {
         NSMenuItem* menuItem = [menuItems objectAtIndex:i];
         if ([[menuItem title] isEqual: name])
-            [menuItem setState:NSOnState];
+			[menuItem setState:NSControlStateValueOn];
         else
-            [menuItem setState:NSOffState];
+			[menuItem setState:NSControlStateValueOff];
 
         if ([menuItem hasSubmenu])
         {
@@ -316,12 +318,13 @@
     
     [panel beginSheetModalForWindow: _window completionHandler: ^(NSInteger returnCode)
      {
-         if (returnCode == NSOKButton)
+		 if (returnCode == NSModalResponseOK)
          {
              float tileFootprintCorrectionFactor = [self leastUpheavalTileFootprintCorrectionFactor];
+			 SALayer* layer = (SALayer*)(self->_view.layer);
              
              SAH264AvEncoder* encoder = [SAH264AvEncoder new];
-             [encoder encode:[self.viewHelper spiritedArraySourceFilePath] TileDrawingStrategy:[self.viewHelper tileDrawingStrategy] WidthInPixels:[self.videoExportSettingsController.videoExportSettings.widthInPixels unsignedIntValue] HeightInPixels:[self.videoExportSettingsController.videoExportSettings.heightInPixels unsignedIntValue] TileWidthInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileWidth TileHeightInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileHeight Url:[panel URL] QuicktimeContainer:NO];
+             [encoder encode:[self.viewHelper spiritedArraySourceFilePath] TileDrawingStrategy:[self.viewHelper tileDrawingStrategy] WidthInPixels:[self.videoExportSettingsController.videoExportSettings.widthInPixels unsignedIntValue] HeightInPixels:[self.videoExportSettingsController.videoExportSettings.heightInPixels unsignedIntValue] TileWidthInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileWidth TileHeightInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileHeight BlurRadius:layer.blurRadius Url:[panel URL] QuicktimeContainer:NO];
          }
      }
      ];
@@ -338,15 +341,92 @@
     
     [panel beginSheetModalForWindow: _window completionHandler: ^(NSInteger returnCode)
      {
-         if (returnCode == NSOKButton)
+		 if (returnCode == NSModalResponseOK)
          {
              float tileFootprintCorrectionFactor = [self leastUpheavalTileFootprintCorrectionFactor];
+			 SALayer* layer = (SALayer*)(self->_view.layer);
              
              SAH264AvEncoder* encoder = [SAH264AvEncoder new];
-             [encoder encode:[self.viewHelper spiritedArraySourceFilePath] TileDrawingStrategy:[self.viewHelper tileDrawingStrategy] WidthInPixels:[self.videoExportSettingsController.videoExportSettings.widthInPixels unsignedIntValue] HeightInPixels:[self.videoExportSettingsController.videoExportSettings.heightInPixels unsignedIntValue] TileWidthInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileWidth TileHeightInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileHeight Url:[panel URL] QuicktimeContainer:YES];
+			 [encoder encode:[self.viewHelper spiritedArraySourceFilePath] TileDrawingStrategy:[self.viewHelper tileDrawingStrategy] WidthInPixels:[self.videoExportSettingsController.videoExportSettings.widthInPixels unsignedIntValue] HeightInPixels:[self.videoExportSettingsController.videoExportSettings.heightInPixels unsignedIntValue] TileWidthInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileWidth TileHeightInPixels:tileFootprintCorrectionFactor*self.viewHelper.desiredTileHeight BlurRadius:layer.blurRadius Url:[panel URL] QuicktimeContainer:YES];
          }
      }
      ];
+}
+
+-(void)handleBlurChoice:(uint)blurRadius MenuItem:(NSMenuItem*)menuItem
+{
+	SALayer* layer = (SALayer*)(self->_view.layer);
+	layer.blurRadius = blurRadius;
+	[SAAppDelegate uncheckAllBut:menuItem In:_blur];
+	[layer updateBlurLayer];
+	if (blurRadius == 0)
+	{
+		[_exportAsGif setEnabled: YES];
+	}
+	else
+	{
+		[_exportAsGif setEnabled: NO];
+	}
+}
+
+-(IBAction)doBlurRadius0:(id)sender
+{
+	[self handleBlurChoice:0u MenuItem:_radius0];
+}
+
+-(IBAction)doBlurRadius1:(id)sender
+{
+	[self handleBlurChoice:1u MenuItem:_radius1];
+}
+
+-(IBAction)doBlurRadius2:(id)sender
+{
+	[self handleBlurChoice:2u MenuItem:_radius2];
+}
+
+-(IBAction)doBlurRadius3:(id)sender
+{
+	[self handleBlurChoice:3u MenuItem:_radius3];
+}
+
+-(IBAction)doBlurRadius4:(id)sender
+{
+	[self handleBlurChoice:4u MenuItem:_radius4];
+}
+
+-(IBAction)doBlurRadius5:(id)sender
+{
+	[self handleBlurChoice:5u MenuItem:_radius5];
+}
+
+-(IBAction)doBlurRadius6:(id)sender
+{
+	[self handleBlurChoice:6u MenuItem:_radius6];
+}
+
+-(IBAction)doBlurRadius7:(id)sender
+{
+	[self handleBlurChoice:7u MenuItem:_radius7];
+}
+
+-(IBAction)doBlurRadius8:(id)sender
+{
+	[self handleBlurChoice:8u MenuItem:_radius0];
+}
+
+-(IBAction)doBlurRadius9:(id)sender
+{
+	[self handleBlurChoice:9u MenuItem:_radius9];
+}
+
+-(IBAction)doBlurRadius10:(id)sender
+{
+	[self handleBlurChoice:10u MenuItem:_radius10];
+}
+
+-(IBAction)centerWindow:(id)sender
+{
+	[[self.view window] center];
 }
 
 -(float) leastUpheavalTileFootprintCorrectionFactor

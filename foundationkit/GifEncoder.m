@@ -40,6 +40,16 @@
     if (colorCount<=256U)
     {
 		int errorCode;
+		
+		NSFileManager *fileManager = [NSFileManager defaultManager];
+		if ([fileManager fileExistsAtPath:designatedFilePath]) {
+			NSError *error = nil;
+			[fileManager removeItemAtPath:designatedFilePath error:&error];
+			if (error) {
+				NSLog(@"Error removing file: %@", error.localizedDescription);
+			}
+		}
+		
 		GifFileType* gifFile = EGifOpenFileName([designatedFilePath UTF8String], 1, &errorCode);
 		GifColorType* gifColorTypeArray = (GifColorType*) malloc(colorCount*sizeof(GifColorType));
 		

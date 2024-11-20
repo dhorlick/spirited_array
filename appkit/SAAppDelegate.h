@@ -36,6 +36,18 @@
 @property (weak) IBOutlet NSMenuItem* crossStitch;
 @property (weak) IBOutlet NSMenu* linePrinter;
 @property (weak) IBOutlet NSMenu* tiling;
+@property (weak) IBOutlet NSMenu* blur;
+@property (weak) IBOutlet NSMenuItem* radius0;
+@property (weak) IBOutlet NSMenuItem* radius1;
+@property (weak) IBOutlet NSMenuItem* radius2;
+@property (weak) IBOutlet NSMenuItem* radius3;
+@property (weak) IBOutlet NSMenuItem* radius4;
+@property (weak) IBOutlet NSMenuItem* radius5;
+@property (weak) IBOutlet NSMenuItem* radius6;
+@property (weak) IBOutlet NSMenuItem* radius7;
+@property (weak) IBOutlet NSMenuItem* radius8;
+@property (weak) IBOutlet NSMenuItem* radius9;
+@property (weak) IBOutlet NSMenuItem* radius10;
 @property (weak) IBOutlet SAVideoExportSettingsController* videoExportSettingsController;
 @property (weak) IBOutlet NSButton *lockIcon;
 @property (weak) IBOutlet NSSlider *tileWidthSlider;
@@ -56,5 +68,17 @@
 -(IBAction)doExportAsH264EncodedQuickTimeMovie:(id)sender;
 
 - (IBAction)toggleResizeTileWidthAndHeightTogether:(id)sender;
+
+-(IBAction)doBlurRadius0:(id)sender;
+-(IBAction)doBlurRadius1:(id)sender;
+-(IBAction)doBlurRadius2:(id)sender;
+-(IBAction)doBlurRadius3:(id)sender;
+-(IBAction)doBlurRadius4:(id)sender;
+-(IBAction)doBlurRadius5:(id)sender;
+-(IBAction)doBlurRadius6:(id)sender;
+-(IBAction)doBlurRadius7:(id)sender;
+-(IBAction)doBlurRadius8:(id)sender;
+-(IBAction)doBlurRadius9:(id)sender;
+-(IBAction)doBlurRadius10:(id)sender;
 
 @end

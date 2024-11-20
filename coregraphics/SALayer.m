@@ -24,12 +24,41 @@
     if (self)
     {
         viewHelper = designatedViewHelper;
-        // self.frameIndex = 0;
+		self.blurRadius = 0;
         self.timeValue = 0;
+		[self updateBlurLayer];
         [self setNeedsDisplay];
     }
-    
+	
     return self;
+}
+
+-(void)updateBlurLayer
+{
+	// NSLog(@"updateBlurLayer: starting...");
+	if (self.blurRadius != 0)
+	{
+		// NSLog(@"updateBlurLayer: blurring...");
+		if (blurLayer == nil)
+		{
+			// NSLog(@"allocating a new blurLayer");
+			blurLayer = [CALayer layer];
+			[self addSublayer:blurLayer];  // thanks, https://stackoverflow.com/a/2822216/1634801
+		}
+		
+		CIFilter *blurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+		[blurFilter setDefaults];
+		[blurFilter setValue: [NSNumber numberWithFloat:self.blurRadius] forKey:@"inputRadius"];
+		blurLayer.backgroundFilters = [NSArray arrayWithObject:blurFilter];
+	}
+	else
+	{
+		if (blurLayer != nil)
+		{
+			[blurLayer removeFromSuperlayer];
+			blurLayer = nil;
+		}
+	}
 }
 
 - (id)initWithLayer:(id)layer
