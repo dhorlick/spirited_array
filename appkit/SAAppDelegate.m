@@ -353,92 +353,75 @@
      ];
 }
 
--(IBAction)doBlurRadius0:(id)sender
+-(void)handleBlurChoice:(uint)blurRadius MenuItem:(NSMenuItem*)menuItem
 {
 	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 0;
-	[SAAppDelegate uncheckAllBut:_radius0 In:_blur];
+	layer.blurRadius = blurRadius;
+	[SAAppDelegate uncheckAllBut:menuItem In:_blur];
 	[layer updateBlurLayer];
+	if (blurRadius == 0)
+	{
+		[_exportAsGif setEnabled: YES];
+	}
+	else
+	{
+		[_exportAsGif setEnabled: NO];
+	}
+}
+
+-(IBAction)doBlurRadius0:(id)sender
+{
+	[self handleBlurChoice:0u MenuItem:_radius0];
 }
 
 -(IBAction)doBlurRadius1:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 1;
-	[SAAppDelegate uncheckAllBut:_radius1 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:1u MenuItem:_radius1];
 }
 
 -(IBAction)doBlurRadius2:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 2;
-	[SAAppDelegate uncheckAllBut:_radius1 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:2u MenuItem:_radius2];
 }
 
 -(IBAction)doBlurRadius3:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 3;
-	[SAAppDelegate uncheckAllBut:_radius3 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:3u MenuItem:_radius3];
 }
 
 -(IBAction)doBlurRadius4:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 4;
-	[SAAppDelegate uncheckAllBut:_radius4 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:4u MenuItem:_radius4];
 }
 
 -(IBAction)doBlurRadius5:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 5;
-	[SAAppDelegate uncheckAllBut:_radius5 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:5u MenuItem:_radius5];
 }
 
 -(IBAction)doBlurRadius6:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 6;
-	[SAAppDelegate uncheckAllBut:_radius6 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:6u MenuItem:_radius6];
 }
 
 -(IBAction)doBlurRadius7:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 7;
-	[SAAppDelegate uncheckAllBut:_radius7 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:7u MenuItem:_radius7];
 }
 
 -(IBAction)doBlurRadius8:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 8;
-	[SAAppDelegate uncheckAllBut:_radius8 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:8u MenuItem:_radius0];
 }
 
 -(IBAction)doBlurRadius9:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 9;
-	[SAAppDelegate uncheckAllBut:_radius9 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:9u MenuItem:_radius9];
 }
 
 -(IBAction)doBlurRadius10:(id)sender
 {
-	SALayer* layer = (SALayer*)(self->_view.layer);
-	layer.blurRadius = 10;
-	[SAAppDelegate uncheckAllBut:_radius10 In:_blur];
-	[layer updateBlurLayer];
+	[self handleBlurChoice:10u MenuItem:_radius10];
 }
 
 -(IBAction)centerWindow:(id)sender
