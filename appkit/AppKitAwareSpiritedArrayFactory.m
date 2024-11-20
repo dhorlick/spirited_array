@@ -13,9 +13,9 @@
 
 +(SpiritedArray *) build:(NSString *)imageFileName
 {
-	NSLog(@"imageFileName = %@", imageFileName);
+	// NSLog(@"imageFileName = %@", imageFileName);
 	NSString* extension = [SpiritedArrayFactory fileExtension: imageFileName];
-	NSLog(@"extension = %@", extension);
+	// NSLog(@"extension = %@", extension);
     // CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	
 	if ([extension caseInsensitiveCompare: @"png"]==0)

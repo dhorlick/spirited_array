@@ -16,7 +16,7 @@
     self = [super init];
     if (self)
     {
-        NSLog(@"input [spiritedArray frames] = %u", [spiritedArray frames]);
+        // NSLog(@"input [spiritedArray frames] = %u", [spiritedArray frames]);
         
         samplingType = UNDETERMINED;
         
@@ -79,15 +79,15 @@
                             /* else
                             {
                                 // source image was not up-sampled; pixel colors runs are not whole-number multiples of one another in size
-                                NSLog(@"source image was not up-sampled; pixel colors runs are not whole-number multiples of one another in size. candidateHorizontalRunLength = %u, currentHorizontalRunLength = %u", candidateHorizontalRunLength, currentHorizontalRunLength);
+                                // NSLog(@"source image was not up-sampled; pixel colors runs are not whole-number multiples of one another in size. candidateHorizontalRunLength = %u, currentHorizontalRunLength = %u", candidateHorizontalRunLength, currentHorizontalRunLength);
                                 
                                 samplingType = DUMBED_DOWN;
                             } */
                         }
                         else
                         {
-                            NSLog(@"currentHorizontalRunLength <= 1 at (%u,%u); Definitely not un-uped. candidateHorizontalRunLength was %u", x, y, candidateHorizontalRunLength);
-                            NSLog(@"previous pixel=%@, pixel=%@", SADescribeColorType(previousPixel), SADescribeColorType(pixel));
+                            // NSLog(@"currentHorizontalRunLength <= 1 at (%u,%u); Definitely not un-uped. candidateHorizontalRunLength was %u", x, y, candidateHorizontalRunLength);
+                            // NSLog(@"previous pixel=%@, pixel=%@", SADescribeColorType(previousPixel), SADescribeColorType(pixel));
                             definitelyNotUnuped = YES;
                         }
                         
@@ -145,7 +145,7 @@
                         }
                         else
                         {
-                            NSLog(@"current vertical run length <=1; Definitely not un-uped.");
+                            // NSLog(@"current vertical run length <=1; Definitely not un-uped.");
                             definitelyNotUnuped = YES;
                         }
                         
@@ -180,12 +180,12 @@
                 }
                 else
                 {
-                    NSLog(@"pixel aspect ratio outside parameter for un-up sampling, %f", pixelAspectRatio);
+                    // NSLog(@"pixel aspect ratio outside parameter for un-up sampling, %f", pixelAspectRatio);
                 }
             }
             else
             {
-                NSLog(@"candidate run lengths incompatible with un-up sampling: %u/%u", candidateVerticalRunLength, candidateHorizontalRunLength);
+                // NSLog(@"candidate run lengths incompatible with un-up sampling: %u/%u", candidateVerticalRunLength, candidateHorizontalRunLength);
             }
         }
         
@@ -194,12 +194,12 @@
             if ([spiritedArray width]*requestedTileWidth <= targetWidth
                 && [spiritedArray height]*requestedTileHeight <= targetHeight)
             {
-                NSLog(@"No up-sampling detected, and no down-sampling is necessary.");
+                // NSLog(@"No up-sampling detected, and no down-sampling is necessary.");
                 samplingType = NONE;
             }
             else
             {
-                NSLog(@"Dumbed-down");
+                // NSLog(@"Dumbed-down");
                 samplingType = DUMBED_DOWN;
             }
         }
@@ -211,7 +211,7 @@
         switch (samplingType)
         {
             case UN_UP:
-                NSLog(@"It's Un-up");
+                // NSLog(@"It's Un-up");
                 content = [[MemorizedSpiritedArray alloc] initWith:[spiritedArray frames] Width:candidateWidth Height:candidateHeight];
                 
                 for (uint frame=0U; frame <[spiritedArray frames]; frame++)
@@ -238,7 +238,7 @@
                 break;
             
             case DUMBED_DOWN:
-                NSLog(@"It's Dumbed-down.");
+                // NSLog(@"It's Dumbed-down.");
                 content = [[MemorizedSpiritedArray alloc] initWith:[spiritedArray frames] Width:targetWidth/requestedTileWidth Height:targetHeight/requestedTileHeight];
                 
                 scaleX = (CGFloat)[content width] / (CGFloat)[spiritedArray width]; // should be < 1
@@ -250,7 +250,7 @@
                 unavailable.Blue = 200; // TODO make this 255
                 unavailable.Green = 255;
                 
-                NSLog(@"scaleX = %f, scaleY = %f",scaleX, scaleY);
+                // NSLog(@"scaleX = %f, scaleY = %f",scaleX, scaleY);
                 SAColorType pixel;
                 
                 for (uint frame=0U; frame <[spiritedArray frames]; frame++)
@@ -325,7 +325,7 @@
     width = [content width];
     height = [content height];
     
-    NSLog(@"UUS initialization complete. Frames = %u", frames);
+    // NSLog(@"UUS initialization complete. Frames = %u", frames);
     
     return self;
 }

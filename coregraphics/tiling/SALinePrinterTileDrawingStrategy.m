@@ -80,13 +80,6 @@
         
         NSArray *sortedCounts = [counts sortedArrayUsingSelector: @selector(compare:)];
         
-        /* for (int i=(int)[sortedCounts count]-1U; i>=0; i--)
-        {
-            NSNumber* darkPixelCountAsObject = [sortedCounts objectAtIndex:i];
-            NSMutableArray* charIndexArray = [charIndexArrayKeyedOnCount objectForKey:darkPixelCountAsObject];
-            NSLog(@"%@ ... %@", darkPixelCountAsObject, charIndexArray);
-        } */
-        
         palette = [NSMutableArray new];
         
         NSString* string = nil;

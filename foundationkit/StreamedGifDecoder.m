@@ -9,7 +9,7 @@
 {
 	if (self = [super init])
 	{
-		NSLog (@"opening file…");
+		// NSLog (@"opening file…");
         respoolHandler = nil;
         frames = 0U;
 		filePath = designatedFilePath;
@@ -42,10 +42,10 @@
         frames = initTimeFramesCounter;
         // frames = 1; // TODO remove this
 		
-		NSLog(@"gifFile->ImageCount = %i", gifFile->ImageCount);
-        NSLog(@"mustMaintainTwoDimensionalState? %@", mustMaintainTwoDimensionalState?@"yes":@"no");
+		// NSLog(@"gifFile->ImageCount = %i", gifFile->ImageCount);
+        // NSLog(@"mustMaintainTwoDimensionalState? %@", mustMaintainTwoDimensionalState?@"yes":@"no");
         
-        NSLog(@"SColorResolution: %i", gifFile->SColorResolution);
+        // NSLog(@"SColorResolution: %i", gifFile->SColorResolution);
         
         if (frames==0 && gifFile->ImageCount==1)
         {
@@ -53,7 +53,7 @@
             frames = 1;
         }
         
-        NSLog(@"frames after initialization = %u", frames);
+        // NSLog(@"frames after initialization = %u", frames);
 		
         if (gifFile->Image.Interlace==0)
             interlaced = NO;
@@ -176,13 +176,13 @@
     
     if (requestedX==0 && lineWithinFrame>0 && lineWithinFrame % 50==0)
     {
-        NSLog(@"lineWithinFrame = %i", lineWithinFrame);
+        // NSLog(@"lineWithinFrame = %i", lineWithinFrame);
     }
     
     if ((frameIndex > requestedFrameIndex || (frameIndex==requestedFrameIndex && lineWithinFrame > requestedY)) && gifFile!=nil)
 	{
 		// need to respool GIF
-		NSLog (@"respooling GIF for REQUEST of (%u, %u) of frame %u when frameIndex = %u and lineWithinFrame = %u", requestedX, requestedY, requestedFrameIndex, frameIndex, lineWithinFrame);
+		// NSLog (@"respooling GIF for REQUEST of (%u, %u) of frame %u when frameIndex = %u and lineWithinFrame = %u", requestedX, requestedY, requestedFrameIndex, frameIndex, lineWithinFrame);
 		
 		int errorCode;
 		DGifCloseFile(gifFile, &errorCode);
@@ -246,7 +246,7 @@
 		}
 		else
 		{						
-			NSLog(@"lineWithinFrame %u matches or exceeds gifFile->SHeight %u", lineWithinFrame, gifFile->SHeight);
+			// NSLog(@"lineWithinFrame %u matches or exceeds gifFile->SHeight %u", lineWithinFrame, gifFile->SHeight);
             lineWithinFrame = -1;
 			readingImageData = false;
             disposalMethod = 0;
@@ -270,7 +270,7 @@
 		switch (type)
 		{
 			case IMAGE_DESC_RECORD_TYPE:
-				NSLog(@"hit IMAGE_DESC_RECORD_TYPE");
+				// NSLog(@"hit IMAGE_DESC_RECORD_TYPE");
 				if (DGifGetImageDesc(gifFile)==GIF_ERROR) // TODO necessary?
                 {
                     @throw [NSException exceptionWithName:NSInternalInconsistencyException
@@ -288,7 +288,7 @@
                 if ((*framesEncountered)==-1)
                 {
                     (*framesEncountered) = 0;
-                    NSLog(@"Hey, there! Incremented framesEncountered from -1 to 0");
+                    // NSLog(@"Hey, there! Incremented framesEncountered from -1 to 0");
                 }
                 
                 // read in first line of pixel data
@@ -302,14 +302,8 @@
 			case EXTENSION_RECORD_TYPE:
                 if (DGifGetExtension(gifFile, &extensionType, &extensionData) != GIF_ERROR) // TODO make sure this can't indicate something other than a frame (like a textual comment, etc.)
                 {
-                    // unsigned char bytesCount = extensionData[0];
                     // NSLog (@"extensionType = %X and bytesCount = %u", extensionType, bytesCount);
-                    
-                    /* for (int i=1; i<=bytesCount; i++)
-                    {
-                        if (extensionType == GRAPHICS_EXT_FUNC_CODE)
-                            NSLog(@"ExtensionData = %X", extensionData[i]);
-                    } */
+
                     
                     if (extensionType == GRAPHICS_EXT_FUNC_CODE)
                     {
@@ -327,7 +321,7 @@
                         disposalMethod = (((packedField & 16) == 16)?4:0)
                                 + (((packedField & 8) == 8)?2:0) 
                                 + (((packedField & 4) == 4)?1:0);
-                        NSLog(@"disposal method = %u", disposalMethod);
+                        // NSLog(@"disposal method = %u", disposalMethod);
                         
                         switch (disposalMethod)
                         {
@@ -362,14 +356,14 @@
                         unsigned int transparency = packedField & 1; // TODO use BOOL, instead?
                         // NSLog(@"transparency = %u", transparency);
                         
-                        if (transparency==1)
+                        /* if (transparency==1)
                             NSLog(@"transparent");
                         else
-                            NSLog(@"opaque");
+                            NSLog(@"opaque"); */
                         
                         unsigned int delayTimeInCentis = extensionData[2] + (256*extensionData[3]);
                         
-                        NSLog(@"delayTimeInCentis = %u", delayTimeInCentis);
+                        // NSLog(@"delayTimeInCentis = %u", delayTimeInCentis);
                         // NSLog(@"delayInCentisAfterFrames = %@", delayInCentisAfterFrames);
                         
                         if (transparency)
@@ -377,19 +371,19 @@
                         else
                             transparentColorIndex = -1;
                         
-                        NSLog(@"transparentColorIndex = %i", transparentColorIndex);
+                        // NSLog(@"transparentColorIndex = %i", transparentColorIndex);
                         
                         if (framesEncountered != NULL)
                         {
                             (*framesEncountered)++; // This is either frames or the frameIndex, depending on whether we've intialized yet
                             
-                            NSLog(@"Incrementing framesEncountered! %i", *framesEncountered);
+                            // NSLog(@"Incrementing framesEncountered! %i", *framesEncountered);
                             
                             if (frames==0U || [delayInCentisAfterFrames count] < frames)
                                 [delayInCentisAfterFrames addObject:[NSNumber numberWithUnsignedInt: delayTimeInCentis]];
                             else
                             {
-                                NSLog(@"[delayInCentisAfterFrames count] = %lu and frames = %u", [delayInCentisAfterFrames count], frames);
+                                // NSLog(@"[delayInCentisAfterFrames count] = %lu and frames = %u", [delayInCentisAfterFrames count], frames);
                                 [delayInCentisAfterFrames replaceObjectAtIndex:*framesEncountered withObject:[NSNumber numberWithUnsignedInt: delayTimeInCentis]];
                             }
                         }
@@ -496,7 +490,7 @@
 {
 	if (gifFile != nil) // TODO handle differently if open for writing
 	{
-		NSLog (@"Closing GIF…");
+		// NSLog (@"Closing GIF…");
 		
 		int errorCode;
 		int result = DGifCloseFile(gifFile, &errorCode);
@@ -578,7 +572,7 @@
                         rowTicker = 0U;
                     }
                     
-                    NSLog(@"Passing thru from pass 0 to pass 1");
+                    // NSLog(@"Passing thru from pass 0 to pass 1");
                     
                 case 1U:
                     y1 = 4U + (8U * rowTicker);
@@ -594,7 +588,7 @@
                         rowTicker = 0U;
                     }
                     
-                    NSLog(@"Passing thru from pass 1 to pass 2");
+                    // NSLog(@"Passing thru from pass 1 to pass 2");
                     
                 case 2U:
                     y1 = 2U + (4U * rowTicker);
@@ -610,7 +604,7 @@
                         rowTicker = 0U;
                     }
                     
-                    NSLog(@"Passing thru from pass 2 to pass 3");
+                    // NSLog(@"Passing thru from pass 2 to pass 3");
                     
                 case 3U:
                     y1 = 1U + (2U * rowTicker);
@@ -626,7 +620,7 @@
                         rowTicker = 0U;
                     }
                     
-                    NSLog(@"Passing thru from pass 3 to pass 4");
+                    // NSLog(@"Passing thru from pass 3 to pass 4");
                     
                 default:
                     @throw [NSException exceptionWithName:NSInternalInconsistencyException

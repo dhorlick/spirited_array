@@ -160,7 +160,7 @@
     {
         if (spiritedArraySourceFilePath!=nil)
         {
-            NSLog(@"generating spirited array…");
+            // NSLog(@"generating spirited array…");
             SpiritedArray* spiritedArrayFromFile = [AppKitAwareSpiritedArrayFactory build:spiritedArraySourceFilePath]; // TODO Obtain the factory from a factory factory (sigh)
             OptimizedSpiritedArray* optimizedSpiritedArray = [[OptimizedSpiritedArray alloc] initWith:spiritedArrayFromFile];
                 // TODO stop doing this… wasteful
@@ -306,7 +306,7 @@
                     {
                         // Resize the tile content
                         
-                        NSLog(@"Resizing tile content cache…");
+                        // NSLog(@"Resizing tile content cache…");
                         scaledMetapixelPalette = [[SAMetapixelPalette alloc] initWith:[tileContent fitCopyToWidth:desiredTileWidth Height:desiredTileHeight]];
                     }
                     
