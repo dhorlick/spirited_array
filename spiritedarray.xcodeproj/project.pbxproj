@@ -724,7 +724,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.riverporpoise.spiritedarray;
 				PRODUCT_NAME = "Spirited Array";
 				SDKROOT = macosx;
@@ -748,7 +748,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.riverporpoise.spiritedarray;
 				PRODUCT_NAME = "Spirited Array";
 				SDKROOT = macosx;
