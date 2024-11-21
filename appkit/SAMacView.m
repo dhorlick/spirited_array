@@ -8,6 +8,7 @@
 
 #import "SAMacView.h"
 #import "SALayer.h"
+#import "SAAppDelegate.h"
 
 @implementation SAMacView
 
@@ -29,7 +30,7 @@
     self.layer.bounds = [self bounds];
     if (@available(macOS 11, *))
     {
-        self.layer.position = NSMakePoint(0, 29);
+        self.layer.position = NSMakePoint(0, SLIDER_HEIGHT_IN_PIXELS);
     }
     else
     {

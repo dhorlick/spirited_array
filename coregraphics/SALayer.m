@@ -7,6 +7,7 @@
 //
 
 #import "SALayer.h"
+#import "SAAppDelegate.h"
 
 @implementation SALayer
 
@@ -89,9 +90,9 @@
 
 -(void)drawInContext:(CGContextRef)context
 {
-	CGContextTranslateCTM(context, 0, -29);
+	CGContextTranslateCTM(context, 0, -SLIDER_HEIGHT_IN_PIXELS);
 	[viewHelper drawRect:[self bounds] Context:context Frame:self.timeValue];
-	CGContextTranslateCTM(context, 0, +29);
+	CGContextTranslateCTM(context, 0, +SLIDER_HEIGHT_IN_PIXELS);
 }
 
 -(SAViewHelper*) viewHelper
