@@ -12,17 +12,6 @@
 
 @implementation SAMacView
 
-/* -(void)drawRect:(NSRect)dirtyRect
-{
-    CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
-    [viewHelper drawRect: dirtyRect Context: context Frame: frame];
-    
-    frame++;
-    
-    if (frame>=[viewHelper frames])
-        frame = 0;
-} */
-
 -(void) setFrameSize: (NSSize)newSize
 {
     [super setFrameSize:newSize];
