@@ -89,7 +89,9 @@
 
 -(void)drawInContext:(CGContextRef)context
 {
-    [viewHelper drawRect:[self bounds] Context:context Frame:self.timeValue];
+	CGContextTranslateCTM(context, 0, -29);
+	[viewHelper drawRect:[self bounds] Context:context Frame:self.timeValue];
+	CGContextTranslateCTM(context, 0, +29);
 }
 
 -(SAViewHelper*) viewHelper

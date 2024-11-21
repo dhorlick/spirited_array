@@ -29,7 +29,7 @@
     self.layer.bounds = [self bounds];
     if (@available(macOS 11, *))
     {
-        self.layer.position = NSMakePoint(0, 0);
+        self.layer.position = NSMakePoint(0, 29);
     }
     else
     {

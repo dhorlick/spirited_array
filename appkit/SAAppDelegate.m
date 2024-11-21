@@ -66,7 +66,7 @@
                     layer.timeValue = 0;
 					if (@available(macOS 11, *))
 					{
-						layer.position = NSMakePoint(0, 0);
+						layer.position = NSMakePoint(0, 29);
 					}
 					else
 					{

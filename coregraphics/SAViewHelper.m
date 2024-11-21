@@ -60,7 +60,7 @@
     
     if (spiritedArray == nil || [spiritedArray frames]==0)
     {
-        NSLog(@"NOT drawing GIF");
+        // NSLog(@"NOT drawing GIF");
     }
     else
     {
@@ -74,7 +74,7 @@
                                      backgroundColor.Green/255.0f,
                                      backgroundColor.Blue/255.0f,
                                      1.0f);
-            CGContextFillRect(context, [self bounds]);
+            CGContextFillRect(context, [self frame]);
         }
         else
         {
@@ -232,6 +232,17 @@
     {
         content = nil;
     }
+}
+
+-(NSRect) frame
+{
+	if (_bounded==nil)
+	{
+		[NSException raise:@"SAViewHelper Unitialized"
+					format:@"_bounded property has not been configured at %d", (int)__LINE__];
+	}
+	
+	return [_bounded frame];
 }
 
 -(NSRect) bounds
