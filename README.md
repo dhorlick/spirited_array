@@ -2,9 +2,11 @@ _Spirited Array_ is a Mac application for de-pixelating and then whimsically re-
 
 # Requirements
 
-As of v1.0.3, Spirited Array is now a universal binary for both Intel and Apple Silicon macs. Additionally, it also now requires macOS 11 or later.
+Spirited Array is a universal binary for both Intel and Apple Silicon macs. It requires macOS 12 or later.
 
-v1.0.2 will run on macOS versions as old as 10.7 and at least as new as 15.1.
+v1.0.3 will also run on macOS 11.
+
+v1.0.2 will run on macOS versions as old as 10.7 and at least as new as 15.1. But it's also Intel-only and requires Rosetta 2 to run on Apple Silicon.
 
 # Operation
 
@@ -17,6 +19,8 @@ An attempt will be made to recognize any pixelation your file exhibits, and remo
 | _screenshot of animation processed from prguitarman's "Pop Tart Cat" GIF (popularized as "Nyan Cat" in a video by saraj00n.)_ |
 
 You may choose different tiling strategies with the _Tiling_ pull-down menu.
+
+The _Blur_ menu can be used to apply a Gaussian Blur filter to the animation.
 
 To change the dimensions of the virtual array, simply resize the animation window.
 

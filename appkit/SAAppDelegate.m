@@ -66,14 +66,7 @@ const int SLIDER_HEIGHT_IN_PIXELS = 29;
                     
 					layer.bounds = [self->_view bounds];
                     layer.timeValue = 0;
-					if (@available(macOS 11, *))
-					{
-						layer.position = NSMakePoint(0, SLIDER_HEIGHT_IN_PIXELS);
-					}
-					else
-					{
-						layer.position = NSMakePoint(CGRectGetMidX([self->_view bounds]), CGRectGetMidY([self->_view bounds]));
-					}
+					layer.position = NSMakePoint(0, SLIDER_HEIGHT_IN_PIXELS);
 					// NSLog(@"layer.position: %f, %f", layer.position.x, layer.position.y);
                     layer.delegate = self.viewHelper;
                     
