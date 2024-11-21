@@ -8,19 +8,9 @@
 
 #import "SAMacView.h"
 #import "SALayer.h"
+#import "SAAppDelegate.h"
 
 @implementation SAMacView
-
-/* -(void)drawRect:(NSRect)dirtyRect
-{
-    CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
-    [viewHelper drawRect: dirtyRect Context: context Frame: frame];
-    
-    frame++;
-    
-    if (frame>=[viewHelper frames])
-        frame = 0;
-} */
 
 -(void) setFrameSize: (NSSize)newSize
 {
@@ -29,7 +19,7 @@
     self.layer.bounds = [self bounds];
     if (@available(macOS 11, *))
     {
-        self.layer.position = NSMakePoint(0, 0);
+        self.layer.position = NSMakePoint(0, SLIDER_HEIGHT_IN_PIXELS);
     }
     else
     {

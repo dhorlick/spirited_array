@@ -16,7 +16,7 @@
 
 @interface SAViewHelper : NSObject<CALayerDelegate, NSAnimationDelegate>
 {
-    NSString* spiritedArraySourceFilePath; // TODO change this to an NSArray* of string?
+    NSString* spiritedArraySourceFilePath;
     SpiritedArray* content;
     SpiritedArray* tileContent;
     SAMetapixelPalette* scaledMetapixelPalette;

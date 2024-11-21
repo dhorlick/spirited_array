@@ -45,6 +45,12 @@
                                              Height:macroblockHeight * (int)ceil((double)bounds.size.height / (double)macroblockHeight)];
 }
 
+-(NSRect)frame
+{
+	NSRect frame = (NSRect)[_bounded frame];
+	return frame;
+}
+
 +(NSRect)makeRectWithWidth:(int) width Height:(int) height
 {
     NSRect myRect;

@@ -18,6 +18,7 @@
 
 -(id)initWithBounded:(NSObject*) designatedBounded AndMacroblockOfWidth:(uint)designatedMacroblockWidth AndHeight:(uint)designatedMacroblockHeight;
 -(NSRect)bounds;
+-(NSRect)frame;
 +(NSRect)makeRectWithWidth:(int) width Height:(int) height;
 
 @end

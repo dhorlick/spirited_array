@@ -25,6 +25,11 @@
     return bounds;
 }
 
+-(NSRect) frame
+{
+	return bounds;
+}
+
 -(NSString *)description
 {
     return [NSString stringWithFormat:@"<SAConcreteBounded: x=%f, y=%f, widht=%f, height=%f>", bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height];
