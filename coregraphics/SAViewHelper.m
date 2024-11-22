@@ -121,7 +121,9 @@
                     }
                     
                     CGImageRef cgImageRef = [imageMetapixelPalette metapixelForColor:pixelColor];
-                    CGContextDrawImage(context, CGRectMake(x*self.desiredTileWidth, ([spiritedArray height]-y)*self.desiredTileHeight, self.desiredTileWidth, self.desiredTileHeight), cgImageRef);
+					int rectX = x*self.desiredTileWidth;
+					int rectY = ([spiritedArray height]-y-1)*self.desiredTileHeight;
+					CGContextDrawImage(context, CGRectMake(rectX, rectY, self.desiredTileWidth, self.desiredTileHeight), cgImageRef);
                 }
                 else
                 {
@@ -130,7 +132,7 @@
                     CGImageRef imageRef = [SACoreGraphicsConverter convertToCoreGraphicsImage: memoized Frame:frame]; // TODO manage these in a separate container
                     
                     CGRect rect = CGRectMake(x*desiredTileWidth,
-                                             ([spiritedArray height]-y)*self.desiredTileHeight,
+                                             ([spiritedArray height]-y-1)*self.desiredTileHeight,
                                              [memoized width],
                                              [memoized height]);
                     
