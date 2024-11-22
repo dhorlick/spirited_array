@@ -14,8 +14,6 @@
 #import "SAVideoExportSettings.h"
 #import "SAVideoExportSettingsController.h"
 
-extern const int SLIDER_HEIGHT_IN_PIXELS;
-
 @interface SAAppDelegate : NSObject <NSApplicationDelegate>
 {
     BOOL inaugural;

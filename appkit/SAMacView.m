@@ -17,7 +17,6 @@
     [super setFrameSize:newSize];
     // NSLog(@"intercepted setFrameSize. new width = %f, new height = %f", newSize.width, newSize.height);
     self.layer.bounds = [self bounds];
-	self.layer.position = NSMakePoint(0, SLIDER_HEIGHT_IN_PIXELS);
     SALayer* saLayer = (SALayer*) self.layer;
     
     // TODO bounds has changed by more than one tile footprint…

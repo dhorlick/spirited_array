@@ -19,8 +19,6 @@
 #import "SAMacroblockedBounded.h"
 @implementation SAAppDelegate
 
-const int SLIDER_HEIGHT_IN_PIXELS = 29;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     inaugural = YES;
@@ -66,7 +64,6 @@ const int SLIDER_HEIGHT_IN_PIXELS = 29;
                     
 					layer.bounds = [self->_view bounds];
                     layer.timeValue = 0;
-					layer.position = NSMakePoint(0, SLIDER_HEIGHT_IN_PIXELS);
 					// NSLog(@"layer.position: %f, %f", layer.position.x, layer.position.y);
                     layer.delegate = self.viewHelper;
                     
