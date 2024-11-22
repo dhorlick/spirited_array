@@ -234,17 +234,6 @@
     }
 }
 
--(NSRect) frame
-{
-	if (_bounded==nil)
-	{
-		[NSException raise:@"SAViewHelper Unitialized"
-					format:@"_bounded property has not been configured at %d", (int)__LINE__];
-	}
-	
-	return [_bounded frame];
-}
-
 -(NSRect) bounds
 {
     if (_bounded==nil)
