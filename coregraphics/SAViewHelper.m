@@ -69,12 +69,12 @@
         if (tileDrawingStrategy!=nil)
         {
             SAColorType backgroundColor = [tileDrawingStrategy backgroundColor];
-            CGContextSetRGBFillColor(context,
+			CGContextSetRGBFillColor(context,
                                      backgroundColor.Red/255.0f,
                                      backgroundColor.Green/255.0f,
                                      backgroundColor.Blue/255.0f,
                                      1.0f);
-            CGContextFillRect(context, [self frame]);
+			CGContextFillRect(context, [self bounds]);
         }
         else
         {
